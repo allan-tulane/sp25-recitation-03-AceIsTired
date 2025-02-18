@@ -18,22 +18,18 @@ class BinaryNumber:
 ## ensure that x, y are appropriately sized binary vectors for a
 ## divide and conquer approach.
 
-
 def binary2int(binary_vec):
     if len(binary_vec) == 0:
         return BinaryNumber(0)
     return BinaryNumber(int(''.join(binary_vec), 2))
 
-
 def split_number(vec):
     return (binary2int(vec[:len(vec)//2]),
             binary2int(vec[len(vec)//2:]))
 
-
 def bit_shift(number, n):
     # append n 0s to this number's binary string
     return binary2int(number.binary_vec + ['0'] * n)
-
 
 def pad(x,y):
     # pad with leading 0 if x/y have different number of bits
@@ -48,11 +44,9 @@ def pad(x,y):
         y = ['0'] + y
     return x,y
 
-
 def quadratic_multiply(x, y):
     # this just converts the result from a BinaryNumber to a regular int
     return _quadratic_multiply(x,y).decimal_val
-
 
 def _quadratic_multiply(x, y):
     newx, newy = pad(x.binary_vec, y.binary_vec)
@@ -69,14 +63,19 @@ def _quadratic_multiply(x, y):
     la = _quadratic_multiply(xleft, yright)
     lb = _quadratic_multiply(xright, yleft)
     l = bit_shift(BinaryNumber(la.decimal_val + lb.decimal_val), len(newx)//2)
-    return BinaryNumber(j.decimal_val + l.decimal_val + k.decimal_val)
+
+    result = BinaryNumber(j.decimal_val + l.decimal_val + k.decimal_val)
+    return result
+    ###
+
+
 
 
 def test_quadratic_multiply(x, y, f):
     start = time.time()
     # multiply two numbers x, y using function f
     finish = f(x, y)
-    return (time.time() - start)*1000
+    return finish, (time.time() - start)*1000
 
 
 
