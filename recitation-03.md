@@ -1,8 +1,6 @@
 # CMPS 2200  Recitation 03
 
-**Name (Team Member 1):**_________________________  
-**Name (Team Member 2):**_________________________
-
+**Name:** Jamari Ross
 
 Now that you have some practice solving recurrences, let's work on implementing some algorithms. In lecture, we discussed a divide and conquer algorithm for integer multiplication. This algorithm takes as input two $n$-bit strings $x = \langle x_L, x_R\rangle$ and $y=\langle y_L, y_R\rangle$ and computes the product $xy$ by using the fact that $xy = 2^{n/2}x_Ly_L + 2^{n/2}(x_Ly_R+x_Ry_L) + x_Ry_R.$ Use the `main.py` to implement one algorithm for integer multiplication: a divide and conquer algorithm that runs in quadratic time. Please refer to https://github.com/allan-tulane/CMPS2200-Slides/blob/main/module-02-recurrences/recurrences-integer-multiplication.ipynb
 
@@ -22,7 +20,7 @@ def quadratic_multiply(x, y):
 We'll also use two helper functions to split the binary vector and convert binary vectors to int are:
 
 ```python
-def binary2int(binary_vec): 
+def binary2int(binary_vec):
     if len(binary_vec) == 0:
         return BinaryNumber(0)
     return BinaryNumber(int(''.join(binary_vec), 2))
