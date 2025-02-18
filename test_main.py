@@ -1,4 +1,4 @@
-from main import *
+from main import quadratic_multiply, BinaryNumber # I couldnt figure out why it wouldn't work, and I ended up finding out I need to add this for the test + autograder to work
 
 
 
